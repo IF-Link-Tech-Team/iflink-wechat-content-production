@@ -1,0 +1,5 @@
+interface:
+  display_name: "IF.Link 微信公众号内容制作"
+  short_description: "制作可编辑、适配手机阅读的 IF.Link 微信公众号内容"
+  brand_color: "#E64A13"
+  default_prompt: "使用 $iflink-wechat-content-production 根据文稿、策划案和品牌素材制作可编辑的 IF.Link 微信公众号内容。"

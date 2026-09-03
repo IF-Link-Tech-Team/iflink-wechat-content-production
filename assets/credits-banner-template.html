@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IF.Link 公众号结尾 Banner（署名版）</title>
+  <style>
+    @font-face {
+      font-family: "Google Sans Flex";
+      src: url("fonts/GoogleSansFlex.ttf") format("truetype");
+      font-weight: 100 1000;
+    }
+    @font-face {
+      font-family: "Noto Sans CJK SC";
+      src: url("fonts/NotoSansCJK-Regular.ttc") format("truetype");
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: "Noto Sans CJK SC";
+      src: url("fonts/NotoSansCJK-Bold.ttc") format("truetype");
+      font-weight: 700;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 900px; height: 373px; margin: 0; overflow: hidden; }
+    body {
+      color: #f5f5f5;
+      font-family: "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+      background: #000;
+    }
+    .banner { position: relative; width: 900px; height: 373px; background: #000; }
+    .credits { position: absolute; top: 55px; left: 52px; }
+    .credit-row {
+      display: grid;
+      grid-template-columns: 66px auto;
+      align-items: baseline;
+      min-height: 34px;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+    .credit-label { color: #ce663e; font-size: 21px; font-weight: 700; }
+    .credit-row:nth-child(2) { margin-top: 8px; }
+    .credit-row:nth-child(3) { margin-top: 14px; }
+    .credit-values { display: grid; gap: 0; white-space: nowrap; font-weight: 700; }
+    .mixed-value { display: block; white-space: nowrap; }
+    .latin { font-family: "Google Sans Flex", sans-serif; }
+    .cjk { font-family: "Noto Sans CJK SC", sans-serif; }
+    .qr { position: absolute; top: 60px; width: 99px; height: 99px; object-fit: contain; }
+    .qr-wechat { left: 485px; }
+    .qr-xhs { left: 637px; }
+    .qr-label {
+      position: absolute;
+      top: 179px;
+      width: 99px;
+      color: #f5f5f5;
+      font-size: 14px;
+      line-height: 1;
+      text-align: center;
+    }
+    .qr-label-wechat { left: 485px; }
+    .qr-label-xhs { left: 637px; }
+    .brand { position: absolute; top: 242px; left: 50px; }
+    .brand-logo { display: block; width: 193px; height: auto; }
+    .tagline {
+      margin: 22px 0 0 2px;
+      color: #f5f5f5;
+      font-family: "Google Sans Flex", sans-serif;
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .community-tag {
+      position: absolute;
+      right: 164px;
+      bottom: 32px;
+      color: #f5f5f5;
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Editable HTML source aligned with the latest approved Banner reference PNG. -->
+  <footer class="banner">
+    <section class="credits" aria-label="制作人员">
+      <div class="credit-row">
+        <div class="credit-label">文案</div>
+        <div class="credit-values"><span class="mixed-value"><span class="latin">IF.Link@</span><span class="cjk">孙欣怡</span></span></div>
+      </div>
+      <div class="credit-row">
+        <div class="credit-label">设计</div>
+        <div class="credit-values">
+          <span class="mixed-value"><span class="latin">MossLand@</span><span class="cjk">孟秋彤</span></span>
+          <span class="mixed-value"><span class="latin">IF.Link@</span><span class="cjk">孙欣怡</span></span>
+        </div>
+      </div>
+      <div class="credit-row">
+        <div class="credit-label">审核</div>
+        <div class="credit-values"><span class="mixed-value"><span class="latin">IF.Link@</span><span class="cjk">郝世杰</span><span class="latin">&nbsp;&nbsp;&nbsp;IF.Link@</span><span class="cjk">梁宇凡</span></span></div>
+      </div>
+    </section>
+
+    <img class="qr qr-wechat" src="banner/qr_wechat.png" alt="微信公众号二维码">
+    <img class="qr qr-xhs" src="banner/qr_xhs.png" alt="小红书二维码">
+    <div class="qr-label qr-label-wechat">微信公众号</div>
+    <div class="qr-label qr-label-xhs">小红书</div>
+
+    <section class="brand" aria-label="IF.Link 品牌">
+      <img class="brand-logo" src="banner/logo.png" alt="IF.Link">
+      <div class="tagline">Link the IFs, connect the Dots.</div>
+    </section>
+    <div class="community-tag">源自东南大学的<br>AI 创客与科技交流社区</div>
+  </footer>
+</body>
+</html>
