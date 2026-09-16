@@ -1,6 +1,6 @@
 ---
 name: iflink-wechat-content-production
-description: Create, revise, render, and export editable IF.Link WeChat official-account content packages from article copy, campaign plans, local brand assets, reference posters, or existing HTML. Use for IF.Link event announcements, competition campaigns, community recruitment posts, article visual sequences, AI-generated backgrounds with HTML typography, mobile-readability revisions, Logo/QR/credits treatment, and final long-image exports.
+description: Create, revise, render, and export editable IF.Link WeChat official-account content packages from article copy, campaign plans, local brand assets, reference posters, or existing HTML. Use for IF.Link event announcements and recaps, competition campaigns, community recruitment posts, article visual sequences, AI-generated backgrounds with HTML typography, mobile-readability revisions, Logo/QR/credits treatment, and final long-image exports.
 ---
 
 # IF.Link 微信公众号内容制作
@@ -16,6 +16,7 @@ description: Create, revise, render, and export editable IF.Link WeChat official
    - 局部修订：某页位置、某个 Logo、某条文案或某个时间节点。
 4. 若项目已有 HTML，做最小范围的可编辑修改；不要退回到不可编辑的整图文字。
 5. 迭代现有长图时读取 [references/revision-playbook.md](references/revision-playbook.md)，先确定反馈影响范围，再修改、增量渲染和回拼，避免旧文案或旧分页残留。
+6. 区分通用要求、文章类型和本次活动的视觉配置。既有招募稿的内容顺序、配色、封面与分页模板不是所有文章的固定答案；本次数据或某一处局部修改也不自动成为通用规则。
 
 ## 核心交付物
 
@@ -33,16 +34,21 @@ description: Create, revise, render, and export editable IF.Link WeChat official
 
 ### 1. 做内容盘点
 
-从源文稿提取：标题、开场情景、活动介绍、奖项、参与权益、产品介绍、时间轴、联合主办、生态伙伴、报名 CTA、免责声明和署名。
+先确定文章类型，再提取实际存在的内容，不按模板补造信息：
 
-建立逐页故事板。内容过多时增加纵向空间或页数，不要通过缩小正文硬塞。参考顺序：
+- **活动预告、招募、赛事宣传**：活动介绍、参与权益、奖项、时间安排、主办与合作伙伴、报名入口等。可参考 `封面 → 情景带入 → 活动介绍 → 奖项/权益 → 产品/工具 → 时间轴 → 合作伙伴 → 报名 CTA → 署名`，按真实内容取舍。
+- **活动总结、结营回顾**：先读取 [references/event-recaps.md](references/event-recaps.md)，围绕真实参与过程、成果和感受组织内容，不套用报名宣传的故事板。
+- **其他文章**：围绕读者问题与核心信息组织，署名、免责声明等按源稿及项目要求保留。
 
-`封面 → 情景带入 → 活动介绍 → 奖项 → 产品/工具介绍 → 参与权益 → 时间轴 → 主办与合作伙伴 → 报名 CTA → 署名 Banner`
+从读者视角写具体用途、行动和结果；避免“报名端”“接住产出”等后台或抽象表述。技术术语需要时保留并解释用途，不把内容润色成空泛口号。统计数据核对对象、单位、时间与去重口径；原话与编辑归纳分开，缺失素材不编造。
+
+先完成内容取舍，再建立分段故事板。内容过多时增加纵向空间或页数，不通过缩小正文硬塞；删掉重复标题和信息，不把素材原样堆到末尾。
 
 ### 2. 选择版式方向
 
 - 需要模块化信息、奖项卡片或结构化权益时，可使用 Bento。
 - 需要更从容的阅读节奏、较长正文或杂志感时，优先使用非 Bento 编辑部版式。
+- 同一篇可混用直接排字、数据卡、图片、引文和分隔线；不要每段都套卡片，也不要把普通章节排成反复出现的网站式 hero 首屏。
 - 用户要求两个版本时，共享同一内容结构、字体规范和素材处理规则，仅改变信息组织方式。
 
 读取 [references/brand-and-layout.md](references/brand-and-layout.md) 后确定画布、字体、间距和首屏结构。
@@ -54,7 +60,7 @@ description: Create, revise, render, and export editable IF.Link WeChat official
 - 每个背景只生成环境、器物、材质、声波和留白。
 - 禁止让模型生成中文、Logo、二维码、表格、奖项数字或时间轴。
 - 在提示词中明确 HTML 文字区的位置、占比与负空间。
-- 分段生成背景，保持同一纸张材质、橙色声波、黑色台座和器物语言。
+- 分段生成背景，保持本次已确认的配色、材质和装饰语言；暖纸、橙色声波、黑色台座只是已有方向之一，不覆盖活动原有视觉。
 - 生成后逐张检查畸变、背景干扰和可用留白；不合格则重做背景，不用半透明文字勉强补救。
 
 需要提示词结构时读取 [references/image-generation.md](references/image-generation.md)。
@@ -64,10 +70,11 @@ description: Create, revise, render, and export editable IF.Link WeChat official
 从 [assets/page-template.html](assets/page-template.html) 复制起始结构，或在项目现有 HTML 中继续工作。
 
 - 使用真实 HTML 文本，禁止把正文烘焙进背景图。
-- 固定每个分页画布为 `900 × 1800`，允许完整长图包含任意数量的分页。
+- 新建时可用 `900 × 1800` 固定分页模板；已有连续长图或不同分段高度时延续确认结构，保持统一宽度，按实际段高截图，不强制补齐为固定页数。
 - 为每页提供 `#capture-N` 锚点，只显示目标页，便于确定性截图。
 - 统一中文正文的字体、字号、字重和行高；不要对中文字形做横向或纵向拉伸。
-- 首屏大标题使用具有明确性格的中文衬线体；正文使用思源黑体等可读性稳定的无衬线体。
+- 首屏延续确认的活动标题字形；新建时可选具有明确性格的中文衬线体。正文使用思源黑体等可读性稳定的无衬线体，并确认字体实际加载。
+- 连续正文默认两端对齐；短标题、引文、语义分行和词云不强制拉满。保留段落节奏，避免中英文混排出现异常字距。
 - 先保证最小字号、左右安全边距和对比度，再处理装饰。
 - 大标题、说明、正文、数字和注释分别建立 CSS token，避免同级文字忽大忽小。
 
@@ -95,7 +102,7 @@ SVG 保持矢量优先；若源文件包含大画布留白，在 HTML 中使用�
 
 ### 6. 制作结尾署名 Banner
 
-统一使用可编辑的 [assets/credits-banner-template.html](assets/credits-banner-template.html) 制作结尾 Banner，画布为 `900 × 373px`。模板按最新署名版参考实现的坐标、字体、混排基线和素材尺寸复刻；[assets/examples/IF.Link_推送banner_署名版_900px.png](assets/examples/IF.Link_推送banner_署名版_900px.png) 作为视觉回归基准。
+需要标准署名 Banner 时，使用可编辑的 [assets/credits-banner-template.html](assets/credits-banner-template.html)，画布为 `900 × 373px`。已有确认的活动专属结尾时优先延续，不自动替换或额外追加标准 Banner。以下模板规则适用于标准署名版；[assets/examples/IF.Link_推送banner_署名版_900px.png](assets/examples/IF.Link_推送banner_署名版_900px.png) 作为其视觉回归基准。
 
 模板中的英文/数字与中文必须继续使用 `.latin`、`.cjk` 分段，以复现最新示例的 Google Sans Flex + 思源黑体混排效果。修改署名、二维码标签或右下角介绍时只替换 HTML 文本，不改变坐标和字号；最终按 `900 × 373px` 截图导出真实 PNG。
 
@@ -103,13 +110,13 @@ SVG 保持矢量优先；若源文件包含大画布留白，在 HTML 中使用�
 - 使用官方 IF.Link Logo，不用文字临摹 Logo。
 - 二维码与左侧人员信息大致处于同一高度。
 - 平台名靠近二维码，不加多余圆点或图标。
-- 当前模板使用黑底、白字、橙色署名标签、99px 二维码、左下 Logo/口号和右下社区介绍；若项目确认其他视觉方向，HTML 模板和示例图必须一起更新。
+- 当前模板使用黑底、白字、橙色署名标签、99px 二维码、左下 Logo/口号和右下社区介绍。活动专属变体保存在项目中；只有调整通用模板基线时才同步更新模板和示例图。
 
 ### 7. 浏览器渲染和视觉检查
 
 启动本地服务器，用浏览器自动化对每页做关键截图。前端修改必须截图验收。
 
-建议直接截取页面坐标：
+固定分页模板直接截取以下坐标；其他分段按实际尺寸设置 clip：
 
 ```text
 clip: { x: 0, y: 0, width: 900, height: 1800 }
@@ -121,7 +128,7 @@ clip: { x: 0, y: 0, width: 900, height: 1800 }
 
 ### 8. 拼接完整长图
 
-按页面顺序拼接，并把署名 Banner 放在最后：
+按页面顺序拼接；有独立署名 Banner 时放在最后，没有则省略 `--banner`：
 
 ```bash
 python3 scripts/compose_long_image.py \
@@ -133,7 +140,7 @@ python3 scripts/compose_long_image.py \
 
 脚本会校验宽度、顺序和输入存在性。输出后再次读取完整长图尺寸并检查首尾。
 
-默认完整保留每个 `900 × 1800` 分页的上下留白。不要为了让页面接缝更“连续”而擅自裁掉页首、页尾或纯色呼吸区；只有用户明确要求无缝裁切时才制作裁切版，并同时保留完整分页版。
+默认完整保留已确认分段的上下留白（固定模板为每页 `900 × 1800`）。不要为了让页面接缝更“连续”而擅自裁掉页首、页尾或纯色呼吸区；只有用户明确要求无缝裁切时才制作裁切版，并同时保留完整分页版。
 
 ### 9. 处理连续反馈与紧急发布
 
@@ -148,6 +155,7 @@ python3 scripts/compose_long_image.py \
 - 所有正文在手机缩放后仍清晰；不得靠浅灰小字维持层级。
 - 文字不得叠在声波、器物、植物或高对比纹理上。
 - 同级正文必须使用一致字号和字形比例。
+- 不靠卡片数量或小字堆积表现内容丰富；在实际手机宽度检查正文、海报与截图的关键信息，原始证据图的小字不能代替可读的正文说明。
 - 中文装饰引号使用成对的 `“` 与 `”`，并锁定中文宋体/思源宋体字形；若作为段落装饰，分别放在整段文字上方和下方，不塞入句头句尾，也不擅自改变已确认的正文换行。
 - 左右留出稳定安全边距，纵向宁可更长，不要横向拥挤。
 - 封面保留大面积呼吸空间；情景带入语句作为下一段落，不挤进主海报。
@@ -156,11 +164,12 @@ python3 scripts/compose_long_image.py \
 - 奖项名称、数量和金额在手机端应优先可读。
 - 不自动添加页码、白色 Logo 承托层、证书文案或二维码框；仅在用户明确要求或扫描可靠性需要时加入。
 - 每次修改同时更新 HTML、分页图、完整长图和预览，不留下版本漂移。
-- 完整长图默认高度必须等于全部完整分页高度与 Banner 高度之和，不默认裁剪页间留白。
+- 完整长图默认高度必须等于全部实际分段高度与独立 Banner 高度之和（无独立 Banner 则不计），不默认裁剪页间留白。
 
 ## 资源导航
 
 - [references/brand-and-layout.md](references/brand-and-layout.md)：尺寸、字体、首屏、正文和版式经验。
+- [references/event-recaps.md](references/event-recaps.md)：活动总结专属的内容结构、作品与反馈呈现、数据口径和验收。
 - [references/image-generation.md](references/image-generation.md)：背景提示词结构与负空间策略。
 - [references/asset-treatment.md](references/asset-treatment.md)：Logo、二维码、合作伙伴和署名处理。
 - [references/qa-and-export.md](references/qa-and-export.md)：浏览器截图、手机验收、拼接和交付清单。

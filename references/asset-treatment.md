@@ -51,10 +51,12 @@
 
 ## 6. 署名 Banner
 
+以下用于标准署名版。已有确认的活动专属结尾时在项目中延续，不强制改为黑底双二维码，也不据此改写通用模板。
+
 - 当前标准署名 Banner 为 `900 × 373px`，采用黑底、左侧署名与 Logo、右侧双二维码及右下角社区介绍。
 - 使用 [assets/credits-banner-template.html](../assets/credits-banner-template.html) 生成最终 HTML Banner；[assets/examples/IF.Link_推送banner_署名版_900px.png](../assets/examples/IF.Link_推送banner_署名版_900px.png) 作为视觉回归基准。
 - 人员信息与二维码上沿大致处于同一高度。
 - 平台名称位于二维码正下方并靠近二维码；通常 `6–10px` 间距足够。
 - “微信公众号”“小红书”使用纯文字，不在前面添加项目符号。
 - 官方 IF.Link Logo 位于左下，保留品牌口号。
-- 当前示例使用纯黑底和白色文字；若项目需要与正文纸色衔接，应在确认视觉方向后修改 HTML 模板，并同步更新示例图。
+- 当前示例使用纯黑底和白色文字；项目需要其他衔接方式时制作项目内变体。只有调整通用模板基线时才同步更新 HTML 模板与示例图。
